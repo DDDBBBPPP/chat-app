@@ -1,0 +1,92 @@
+<ion-content [fullscreen]="true">
+
+  <div align="center" class="logo">
+
+    <img src="assets/imgs/logoo.png" alt="logo">
+
+  </div>
+  <ion-card class="ion-padding auth-card">
+    <form [formGroup]="form">
+
+      <ion-input placeholder="Email" type="email" formControlName="email" errorText="*Please enter your email"
+        >
+
+        <ion-icon name="mail-outline" slot="start"></ion-icon> >
+      </ion-input>
+
+      <ion-input placeholder="Password" type="password" formControlName="password" [errorText]="
+    form.get('password')?.hasError('minlength')
+      ? 'Password must be at least 8 characters long'
+      : '*Please enter your password'
+  ">
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+      </ion-input>
+
+      <div align="right">
+        <ion-button fill="clear" size="small" style="text-transform: none;"
+        (click)="setFp(true)">Forgot password?</ion-button>
+      </div>
+
+       @if(!isLogin()){
+
+        <ion-button size="large"
+        expand="block"
+        [strong]="true"
+        class="ion-margin-top ion-padding-top login"
+        (click)="onSubmit()">
+        <ion-text color="light">Login</ion-text>
+
+        </ion-button>
+
+       } @else {
+
+        <ion-button size="large" expand="block" [strong]="true" class="ion-margin-top ion-padding-top login">
+        <ion-spinner name="crescent" color="light"></ion-spinner>
+
+        </ion-button>
+
+       }
+
+
+
+    </form>
+  </ion-card>
+
+  <div align="center" class="signup">
+
+    <ion-text color="medium">Don't have an account?</ion-text>
+    <ion-button fill="clear" size="small" [strong]="true" routerLink="signup">Signup</ion-button>
+  </div>
+
+  <!-- Codigo comentado -->
+   <ion-alert [isOpen]="!!errorMessage()"
+   (didDismiss)="setErrorMessage(null)"
+   header="Alert"
+   [message]="errorMessage()" [buttons]="['OK']">
+
+  </ion-alert>
+
+  <!-- Forgot Password Modal -->
+
+  <ion-modal
+  [isOpen]="isFpModal()"
+  (didDismiss)="setFp(false)"
+  [breakpoints]="[0,0.4,0.5,0.8,1]"
+  [initialBreakpoint]="0.4"
+  >
+
+  <ng-template>
+
+    <app-forgot-password
+    (closeModal)="setFp(false)"
+    (errorMessage)="setErrorMessage($event)">
+
+    </app-forgot-password>
+
+  </ng-template>
+
+  </ion-modal>
+
+
+</ion-content>

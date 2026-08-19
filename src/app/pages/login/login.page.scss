@@ -1,0 +1,26 @@
+.logo {
+  margin: 6vh 0 4vh 0;
+  img{
+    height: 20vh;
+  }
+}
+
+
+
+.signup {
+  margin-top: 5vh;
+  ion-text {
+    font-size: 0.9rem;
+    vertical-align: -webkit-baseline-middle;
+  }
+  ion-button {
+    --padding-start: 2px;
+    text-transform: none;
+  }
+}
+
+.login {
+  --background: linear-gradient(135deg, #4a90e2, #6030ff);
+  --border-radius: 15px;
+  text-transform: none;
+}

@@ -1,0 +1,69 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login" text="Back"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div align="center" class="logo">
+
+    <img src="assets/imgs/logoo.png" alt="logo">
+
+  </div>
+  <ion-card class="auth-card ion-padding">
+    <form [formGroup]="form">
+      <ion-input placeholder="Name" type="text" formControlName="name" errorText="*Please enter your name">
+
+        <ion-icon name="person-outline" slot="start"></ion-icon>
+      </ion-input>
+
+      <ion-input placeholder="Email" type="email" formControlName="email" errorText="*Please enter your email">
+
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+      </ion-input>
+
+      <ion-input placeholder="Password" type="password" formControlName="password" [errorText]="
+    form.get('password')?.hasError('minlength')
+      ? 'Password must be at least 8 characters long'
+      : '*Please enter your password'
+  ">
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+      </ion-input>
+
+
+      @if(!isSignup()){
+
+      <ion-button size="large" expand="block" [strong]="true" class="ion-margin-top ion-padding-top signup"
+        (click)="onSubmit()">
+        <ion-text color="light">Signup</ion-text>
+
+      </ion-button>
+
+      } @else {
+
+      <ion-button size="large" expand="block" [strong]="true" class="ion-margin-top ion-padding-top signup">
+        <ion-spinner name="crescent" color="light"></ion-spinner>
+
+      </ion-button>
+
+      }
+
+
+
+    </form>
+  </ion-card>
+
+
+  <!-- Codigo comentado -->
+  <ion-alert [isOpen]="!!errorMessage()" (didDismiss)="setErrorMessage(null)" header="Alert" [message]="errorMessage()"
+    [buttons]="['OK']">
+
+  </ion-alert>
+
+
+
+</ion-content>

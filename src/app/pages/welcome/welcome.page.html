@@ -1,0 +1,27 @@
+<ion-content [fullscreen]="true">
+
+  <swiper-container
+  [modules]="swiperModules"
+  [pagination]="{clickable: true}"
+  [keyboard]="true"
+  effect="cards"
+  >
+
+  @for(slide of slides; track $index) {
+    <swiper-slide>
+      <div [ngStyle]="{
+        'background-image' : 'url(' + slide + ')'}"
+        >
+        <ion-button shape="round" size="large" [strong]="true" (click)="goToLogin()" color="light"
+        >
+        <ion-text>
+          Let's Start
+        </ion-text>
+        </ion-button>
+
+      </div>
+    </swiper-slide>
+  }
+
+</swiper-container>
+</ion-content>
