@@ -85,6 +85,8 @@ export class AuthService {
   logout(){
     this.storage.removeStorage(Strings.TOKEN_KEY);
     this.setUid(null);
+
+    this.navigateByUrl('/login');
   }
 
 

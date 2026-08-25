@@ -14,14 +14,14 @@ export class ThemeService {
 
     // value of the prefers color-scheme media query
 
-    /* this.initializeDarkPalette(prefersDark.matches); */
+     this.initializeDarkPalette(prefersDark.matches); 
 
     //Initialize the dark palette based on the initial
-    this.initializeDarkPalette(true);
+     this.initializeDarkPalette(true);
 
     //Listen for changes to the prefers-color-cheme media query
-    /* prefersDark.addEventListener('change',
-      (mediaQuery) => this.initializeDarkPalette(mediaQuery.matches)); */
+     prefersDark.addEventListener('change',
+      (mediaQuery) => this.initializeDarkPalette(mediaQuery.matches)); 
 
 
   }
@@ -32,10 +32,10 @@ export class ThemeService {
   }
 
   // Listen for the toggle check/uncheck to toggle the dark palette
- /*  toggleChange(ev: any) {
+  toggleChange(ev: any) {
     this.toggleDarkPalette(ev.detail.checked);
 
-  } */
+  }
 
   //Add or remove ion-palette-dark class on the html element
   toggleDarkPalette(shouldAdd: boolean) {

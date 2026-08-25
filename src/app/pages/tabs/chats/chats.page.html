@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Recent Chats</ion-title>
+    <ion-buttons slot="end">
+      <ion-button size="large" [color]="isDarkMode() ? 'light' : 'dark'">
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Recent Chats</ion-title>
+
+    </ion-toolbar>
+  </ion-header>
+
+  @let chatArray = chatrooms();
+  @if(chatArray && chatArray?.length! >0){
+
+  <div class="searchbar">
+    <ion-searchbar class="srchbar" placeholder="Search">
+
+    </ion-searchbar>
+  </div>
+
+  <ion-list>
+
+    @for(chatroom of chatArray; track $index){
+
+    <ion-item>
+
+      <ion-avatar slot="start">
+        <ion-img [src]="chatroom?.photo"></ion-img>
+      </ion-avatar>
+
+      <ion-label>
+        {{chatroom?.name}}
+        <p>{{chatroom?.lastMessage}}</p>
+      </ion-label>
+
+      <ion-text slot="end">{{chatroom?.lastMessageTime | date: 'hh:mm a'}}</ion-text>
+    </ion-item>
+    }
+
+  </ion-list>
+
+  }
+
+
+
+</ion-content>

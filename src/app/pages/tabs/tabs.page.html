@@ -1,13 +1,38 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>tabs</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-tabs (ionTabsDidChange)="getSelected($event)">
+  <ion-tab-bar slot="bottom">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">tabs</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+    @let tab = selectedTab();
+
+    <ion-tab-button tab="chats" layout="icon-start" 
+    [ngClass]="{'selected': tab == 'chats'}">
+      <ion-icon name="chatbubbles-outline"></ion-icon>
+      @if(tab == 'chats') {
+        <ion-label>Chats</ion-label>
+      }
+    </ion-tab-button>
+
+    <ion-tab-button tab="contacts" layout="icon-start"
+    [ngClass]="{'selected': tab == 'contacts'}">
+      <ion-icon name="people-outline"></ion-icon>
+      @if(tab == 'contacts') {
+        <ion-label>Contacts</ion-label>
+      }
+    </ion-tab-button>
+
+    <ion-tab-button tab="status" layout="icon-start"
+    [ngClass]="{'selected': tab == 'status'}">
+      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+      @if(tab == 'status') {
+        <ion-label>Status</ion-label>
+      }
+    </ion-tab-button>
+    
+    <ion-tab-button tab="settings" layout="icon-start"
+    [ngClass]="{'selected': tab == 'settings'}">
+      <ion-icon name="cog-outline"></ion-icon>
+      @if(tab == 'settings') {
+        <ion-label>Settings</ion-label>
+      }
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

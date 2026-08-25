@@ -48,3 +48,33 @@
     }
   }
 }
+
+ion-searchbar.srchbar {
+  --border-radius: 20px;
+  .searchbar-input-container {
+    ion-icon {
+      inset-inline-start: 10px;
+    }
+    button {
+      inset-inline-end: 10px;
+    }
+    input {
+      padding-inline-start: 3rem !important;
+    }
+  }
+}
+
+.ios {
+  ion-searchbar.srchbar {
+    //margin-top:1vh;
+    .searchbar-input-container {
+      height: 45px;
+    }
+  }
+}
+
+.md {
+  ion-searchbar.srchbar {
+    margin-top:1vh;
+  }
+}
