@@ -1,0 +1,23 @@
+ion-list{
+  background: transparent;
+  margin: 10px;
+  border: 1px solid var(--ion-color-medium);
+  border-radius: 10px;
+  ion-item{
+    ion-thumbnail{
+      height: 5vh;
+      width: 5vh;
+      ion-img{
+          border-radius: 10px;
+      }
+    }
+    ion-label{
+      font-size: 1.1rem;
+      padding:1.5vh 0;
+      p {
+        margin-top: 3px;
+        font-size: 0.85rem;
+      }
+    }
+  }
+}

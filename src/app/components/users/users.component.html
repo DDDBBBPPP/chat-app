@@ -1,0 +1,36 @@
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>New Chat</ion-title>
+      <ion-buttons slot="end">
+        <ion-button color="medium" (click)="closeModal()">
+          <ion-icon slot="icon-only" name="close-circle"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list-header>
+    Contacs
+  </ion-list-header>
+
+  <ion-list lines="full">
+    @for(user of users(); track $index){
+      <ion-item>
+      <ion-thumbnail slot="start">
+        <ion-img [src]="user?.photo" />
+      </ion-thumbnail>
+      <ion-label>
+        {{user?.name}}
+        @if(user?.status){
+            <p>
+          {{user?.status }}
+        </p>
+        }
+
+      </ion-label>
+    </ion-item>
+    }
+
+  </ion-list>
+</ion-content>
