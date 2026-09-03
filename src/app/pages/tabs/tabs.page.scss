@@ -6,7 +6,7 @@ ion-tab-button {
 }
 
 ion-tab-button.selected {
-    background: linear-gradient(135deg, #4a90e2, #6030ff);
+    background: linear-gradient(135deg, var(--ion-color-primary), var(--ion-color-tertiary));
     border-radius: 20px;
     margin : 0 5px;
     box-shadow: 0 0 4px 3px rgba(0,0,0,0.15);

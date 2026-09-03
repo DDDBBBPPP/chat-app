@@ -34,8 +34,9 @@
 
       @for(chatroom of chatArray; track $index){
 
-      <ion-item>
-
+      <ion-item [routerLink] ="['/', 'tabs', 'chat',
+       chatroom.roomId]">
+ 
         <ion-avatar slot="start">
           <ion-img [src]="chatroom?.photo"></ion-img>
         </ion-avatar>

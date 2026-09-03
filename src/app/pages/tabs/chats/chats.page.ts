@@ -1,11 +1,11 @@
 import { DatePipe } from '@angular/common';
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { IonAvatar, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonImg, IonItem, IonLabel, IonList, IonSearchbar, IonText, IonTitle, IonToolbar, IonModal } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { closeCircle, createOutline } from 'ionicons/icons';
 import { NoRecordFoundComponent } from 'src/app/components/no-record-found/no-record-found.component';
 import { UsersComponent } from 'src/app/components/users/users.component';
-import { Chatroom } from 'src/app/interfaces/chatroom.interface';
 import { ChatRoomService } from 'src/app/services/chat-room/chat-room.service';
 import { ThemeService } from 'src/app/services/theme/theme.service';
 import { UsersService } from 'src/app/services/users/users.service';
@@ -33,12 +33,11 @@ import { UsersService } from 'src/app/services/users/users.service';
     NoRecordFoundComponent,
     IonModal,
     UsersComponent,
+    RouterLink
   ]
 })
 export class ChatsPage implements OnInit {
 
-
-  //chatrooms = signal<Chatroom[]>([]);
   chatrooms = computed(() => this.chatroomService.chatrooms())
   model = {
     icon: 'chatbubbles-outline',

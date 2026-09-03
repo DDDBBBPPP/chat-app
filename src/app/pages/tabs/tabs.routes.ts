@@ -30,5 +30,10 @@ export const routes: Routes = [
             },
 
         ]
-    }
+    },
+  {
+    path: 'chat/:id',
+    loadComponent: () => import('./chat/chat.page').then( m => m.ChatPage)
+  }
+
 ]

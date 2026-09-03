@@ -17,6 +17,17 @@ export class AuthService {
     this.storage.setStorage(Strings.TOKEN_KEY, value);
   }
 
+ async getUid(){
+    if(!this.uid()){
+      const data = await this.storage.getStorage(Strings.TOKEN_KEY);
+      if(!data?.value || data?.value == null){
+        return null;
+      }
+      this.uid.set(data.value);
+    }
+    return this.uid();
+  }
+
   setUid(uid: string | null) {
     this.uid.set(uid);
   }
@@ -27,7 +38,7 @@ export class AuthService {
 
       //work with backend to login
 
-      const uid = '1';
+      const uid = '10';
       //save in storage
       this.setUserData(uid);
       this.setUid(uid);

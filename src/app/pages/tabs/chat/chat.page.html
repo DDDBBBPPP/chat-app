@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title mode="ios">
+      <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img [src]="chatroom.photo" alt="photo">
+        </ion-avatar>
+        <ion-label>
+          {{ chatroom.name }}
+          @if(user?.status){
+             <p>
+            {{ user?.status }}
+          </p>
+          }
+         
+        </ion-label>
+      </ion-item>
+    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/chats"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  @if(chats().length > 0){
+  <ion-list>
+    @for(chat of chats(); track $index){
+    <app-chat-box [chat]="chat!">
+
+    </app-chat-box>
+    }
+  </ion-list>
+  } @else {
+
+  <app-no-record-found [model]="model">
+
+  </app-no-record-found>
+
+  }
+</ion-content>
+
+<ion-footer class="ion-no-border">
+
+  <ion-toolbar>
+    <ion-item lines="none" [color]="theme.paletteToggle() ? 'dark' : 'light'">
+      <ion-textarea autoGrow [rows]="1" placeholder="Type your message..." class="ion-text-center ion-align-self-center"
+        [(ngModel)]="message">
+
+      </ion-textarea>
+      @if(isLoading()){
+      <!-- spinner -->
+      <ion-button slot="end" size="large">
+        <ion-spinner name="crescent" color="light"></ion-spinner>
+      </ion-button>
+      }@else {
+      <ion-button slot="end" size="large" (click)="sendMessage()">
+        <ion-icon slot="icon-only" name="send" color="light"></ion-icon>
+      </ion-button>
+      }
+
+    </ion-item>
+  </ion-toolbar>
+
+</ion-footer>
+

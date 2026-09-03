@@ -5,4 +5,5 @@ export interface Chatroom {
   photo: string | null;
   lastMessage: string | null;
   lastMessageTimestamp: any;
+  room: any;
 }

@@ -82,14 +82,6 @@ export class UsersService {
 
 },
 {
-  id: 10,
-  name: "Sophia Martin",
-  email: "sophia.martin@example.com",
-  photo: "https://i.pravatar.cc/300?img=42",
-  phone: "+123456000010",
-  status: "offline"
-},
-{
   id: 11,
   name: "James Anderson",
   email: "james.anderson@example.com",
@@ -115,5 +107,9 @@ export class UsersService {
 },
     ]
   );
+
+  getUser(id: number){
+    return this.users().find(user => user.id === id);
+  }
 
 }
